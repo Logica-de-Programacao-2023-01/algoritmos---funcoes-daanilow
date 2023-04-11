@@ -1,0 +1,31 @@
+package main
+
+import "fmt"
+
+//Crie uma função que receba dois parâmetros (a e b) e retorne a divisão entre eles. Caso o
+//segundo parâmetro seja zero, retorne um erro.
+
+func main() {
+	var x float64
+	var y float64
+
+	fmt.Println("Digite o primeiro número")
+	fmt.Scan(&x)
+	fmt.Println("Digite o segundo número")
+	fmt.Scan(&y)
+
+	resultado, error := divide(x, y)
+	if error != nil {
+		fmt.Println("A divisão é impossível")
+	}
+	fmt.Println("O resultado da divisão é", resultado)
+
+}
+
+func divide(x, y float64) (float64, error) {
+	if y == 0 {
+		return 0, fmt.Errorf("cannot divide by zero")
+	}
+	return x / y, nil
+
+}
